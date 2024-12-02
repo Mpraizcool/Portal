@@ -1,2 +1,2 @@
 # schoolweb
-Respomsive School Website with Engagements
+Responsive School Website with Engagements
