@@ -1,5 +1,25 @@
 <?php
+<?php
 session_start();
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate the CSRF token
+    if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+        // CSRF token is valid, process the form data
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
+        $email = htmlspecialchars($_POST['email']);
+
+        // Add your form processing logic here (e.g., saving to database)
+
+        echo "Registration successful!";
+    } else {
+        // Invalid CSRF token
+        echo "Invalid CSRF token. Please try again.";
+    }
+}
+
 if(isset($_POST['submit']))
 {
 $fname=$_POST['full_name'];
