@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_POST['submit']))
 {
 $fname=$_POST['full_name'];
@@ -102,6 +102,7 @@ if($query)
 										Log-in
 									</a>
 								</p>
+								<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 								<button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">
 									Submit <i class="fa fa-arrow-circle-right"></i>
 								</button>
