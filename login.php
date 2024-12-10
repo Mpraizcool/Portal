@@ -1,5 +1,9 @@
 <?php
 session_start();
+// Generate a CSRF token if it doesn't already exist in the session
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))
@@ -78,7 +82,8 @@ exit();
 								</a>
 							</div>
 							<div class="form-actions">
-								
+								<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+
 								<button type="submit" class="btn btn-primary pull-right" name="submit">
 									Login <i class="fa fa-arrow-circle-right"></i>
 								</button>
