@@ -1,5 +1,4 @@
 <?php
-<?php
 session_start();
 
 // Check if the form is submitted
@@ -19,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Invalid CSRF token. Please try again.";
     }
 }
-
 if(isset($_POST['submit']))
 {
 $fname=$_POST['full_name'];
@@ -41,18 +39,28 @@ if($query)
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
+<head>
 		<title>User Registration</title>
-
-	</head>
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
+		<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+		<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+		<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/plugins.css">
+		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+		
 
 	<body class="login">
 		<!-- start: REGISTRATION -->
-         
+        
 		<div class="row">
 			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 				<div class="logo margin-top-30">
-				<a href="index.php"><h2>Registration</h2></a>
+				<a href="login.php"><h2>Registration</h2></a>
 				</div>
 				<!-- start: REGISTER BOX -->
 				<div class="box-register">
@@ -118,11 +126,10 @@ if($query)
 							<div class="form-actions">
 								<p>
 									Already have an account?
-									<a href="user-login.php">
+									<a href="login.php">
 										Log-in
 									</a>
 								</p>
-								<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 								<button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">
 									Submit <i class="fa fa-arrow-circle-right"></i>
 								</button>
